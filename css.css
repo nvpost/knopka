@@ -1,0 +1,60 @@
+body{
+	background: #DDDDDD;
+	font-family: 'Arya', sans-serif;
+}
+p{
+	margin: 0;
+}
+		.buttonHolder{
+			  margin-top:50;
+			  margin-left: 30%;
+			      position: fixed;
+   				bottom: 100px;
+			}
+
+		.button{
+			font-weight: bold;
+			background-image: -webkit-linear-gradient(top, #f4f1ee, #fff);
+			background-image: linear-gradient(top, #f4f1ee, #fff);
+			border-radius: 50%;
+			box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
+			float:left;
+			height: 200px;
+			margin: 0 30px 30px 0;
+			position: relative;
+			width: 200px;			
+			-webkit-transition: all .1s linear;
+			transition: all .1s linear;
+		}
+
+		.button:after{
+			color:#616161;
+			content: "";
+			display: block;
+			font-size: 8em;
+			text-decoration: none;
+			text-shadow: 3px 3px 1px #bdb5b4, 3px 3px 1px white;
+			position: absolute;
+
+		}
+
+		.tick:after{
+			content: "+1";
+			left:23px;
+			top:23px;
+		}
+
+		.button:active{
+			background-image: -webkit-linear-gradient(top, #efedec, #f7f4f4);
+			background-image: linear-gradient(top, #efedec, #f7f4f4);
+			box-shadow: 0 3px 5px 0 rgba(0,0,0,.4), inset 0px -3px 1px 1px rgba(204,198,197,.5);
+		}
+		.button:active:after{
+			color:#B7B7B7;
+			text-shadow: 0px 0px 1px #bdb5b4, 0px 0px 1px white;
+		}
+.appConsole{
+	margin-top:250px;
+	font-size: 16em;
+    text-align: center;
+}		
