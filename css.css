@@ -1,7 +1,8 @@
 body{
 	background: #DDDDDD;
 	font-family: 'Arya', sans-serif;
-	background-image: url('img/white1.jpg')
+	background-image: url('img/white1.jpg');
+	padding:0px;
 }
 p{
 	margin: 0;
@@ -62,7 +63,7 @@ h2{
     text-align: center;
     text-shadow: 2px 2px 5px rgba(150, 150, 150, 1);
 }
-.appHeader{
+.appHeader, .wayHeader{
 	height: 80px;
 	background-color:white;
 	box-shadow: 0 3px 5px 0 rgba(150, 150, 150, 1)
@@ -90,8 +91,62 @@ h2{
 }
 
 /*Блок статистики*/	
-.appHeader>h2{
-	margin-left: 5px;
-	mar
+.statHeader{
+	padding-left: 5px;
+		height: 80px;
+		background-color: #fff;
+		box-shadow: 0 3px 5px 0 rgba(150, 150, 150, 1);
+		text-align: center;
+		font-size: 24px;
+		font-weight: bold;
+		padding-top: 20px;
+}
+.table-bordered{
+	font-size: 14px;
+	background-color: #fff;
+}
+.tablePlace{
+	margin-top: 10px;
 }
 /*Конец блока статистики*/	
+
+
+/*Блок пути*/	
+.wayHeader{
+	height: 80px;
+	background-color:white;
+		
+	box-shadow: 0 3px 5px 0 rgba(150, 150, 150, 1);
+}
+.waySum, .wayTime{
+	display: inline-table;
+	padding-left: 5px;
+	border-left: 1px solid gray;
+	width: 48%;
+	height: 40px;
+}
+.wayName{
+	text-align: center;
+	padding-top: 5px;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.way{
+  border: 1px solid green;
+  width: 150px;
+  margin-top: 5px;
+  text-align: center;
+  margin-left: 30%;
+}
+.dot{
+  width:25px;
+  height:25px;
+  border: 5px solid green;
+  border-radius: 50px;
+  margin: 3px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/*Конец блока пути*/	

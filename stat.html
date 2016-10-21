@@ -4,16 +4,19 @@
 <link rel="stylesheet" href="lib/bootstrap-theme.min.css">
 <script src="lib/bootstrap.min.js"></script>
 <script src="lib/moment.js"></script>
+<script src="lib/momentLocal.js"></script>
 
 <link rel='stylesheet' href='css.css'>
 
 <body>
 	<div class='main'>
-		<div class="appHeader">
-		<h2>Всего записей:</h2><span></span>
+		<div class="statHeader">
+		<p>Всего записей: <span id='vsegoZapisey'></span></p>
 		</div>
 
-		<div class="statBody"></div>
+		<div class="statBody">
+			<div class="tablePlace"></div>
+		</div>
 		<div class="statFooter"></div>
 	</div>	
 
