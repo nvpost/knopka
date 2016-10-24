@@ -108,6 +108,24 @@ h2{
 .tablePlace{
 	margin-top: 10px;
 }
+/*Модальное окно пути*/
+.statHover{
+	width:500px;
+	height: 100%;
+	background-color:#838383;
+	opacity: 0.5;
+	position: fixed;
+}
+.wayModal{
+	width:200px;
+	height: 100%;
+	position: fixed;
+	left: 150px;
+	background-color: white;
+
+
+
+}
 /*Конец блока статистики*/	
 
 

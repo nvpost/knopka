@@ -66,7 +66,7 @@ $('.hLong').on('click', function(){
 })
 //Конец стопа 
 function logger(s){
-	counterLogger.push(moment())
+	counterLogger.push(new Date().getTime())
 	if(s=='s'){
 		if(newName=prompt('Чтобы сохранить нажмите ОК и, при желании, введите название', counterName)){
 			counterLogger[0]=newName
