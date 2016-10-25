@@ -63,6 +63,11 @@ h2{
     text-align: center;
     text-shadow: 2px 2px 5px rgba(150, 150, 150, 1);
 }
+.appCounterName{
+	margin-top:5px;
+	font-size: 16px;
+    text-align: center;
+}
 .appHeader, .wayHeader{
 	height: 80px;
 	background-color:white;
@@ -105,10 +110,28 @@ h2{
 	font-size: 14px;
 	background-color: #fff;
 }
+
 .tablePlace{
 	margin-top: 10px;
 }
+.hoverTr{
+	background-color: #E4EAA3;
+	-webkit-transition-property: background;
+	-webkit-transition-duration: 3s;
+	-webkit-transition-timing-function: ease;
+
+}
+
+/*Конец блока статистики*/	
+
+
+/*Блок пути*/	
+
+
 /*Модальное окно пути*/
+.statHover, .wayModal{
+	display: none;
+}
 .statHover{
 	width:500px;
 	height: 100%;
@@ -117,23 +140,33 @@ h2{
 	position: fixed;
 }
 .wayModal{
-	width:200px;
-	height: 100%;
+	width:300px;
+
+	height: 95%;
 	position: fixed;
+	top:2.5%;
 	left: 150px;
 	background-color: white;
-
-
-
+	 box-shadow: 8px 8px 15px 1px #5b5b5b;
 }
-/*Конец блока статистики*/	
+.wayModalBody{
+	padding-left: 30px;
+	margin-top: 5px;
+}
+.wayModalHeader{
+	height: 40px;
+
+	box-shadow: 2px 2px 2px 1px #5b5b5b;
+
+	font-size: 14;
+    text-align: center;
+}
 
 
-/*Блок пути*/	
+
 .wayHeader{
 	height: 80px;
 	background-color:white;
-		
 	box-shadow: 0 3px 5px 0 rgba(150, 150, 150, 1);
 }
 .waySum, .wayTime{
@@ -162,9 +195,20 @@ h2{
   height:25px;
   border: 5px solid green;
   border-radius: 50px;
-  margin: 3px;
-  font-size: 12px;
+  padding-left: 3px;
+  padding-bottom: 4px;
+  font-size: 14px;
   font-weight: bold;
+
+}
+.dot>p{
+	line-height: 15px;
+}
+.dotLabel{
+	margin-left: 5px;
+}
+.dotHolder>div{
+	display: inline-flex;
 }
 
 /*Конец блока пути*/	
