@@ -5,7 +5,7 @@ $('#vsegoZapisey').html(starArr.length)
 var table="<table class='table table-bordered'> <thead><tr><th>Re</th><th>Дата</th><th>Название</th><th>Кол-во</th></tr> </thead>"
 for(i in starArr){
 	var nArr=starArr[i].split(',')
- 	table=table+"<tr data-row="+i+"><td class='notStat'><img id='rep"+i+"' src='img/return.png' width='30'></td><td>"+moment(nArr[1]).format('DD.MM, HH:mm')+"</td><td>"+nArr[0]+"</td><td>"+(nArr.length-1)+"</td></tr>"
+ 	table=table+"<tr data-row="+i+"><td class='notStat'><img id='rep"+i+"' src='img/return.png' width='30'></td><td>"+moment(parseInt(nArr[1])).format('DD.MM, HH:mm')+"</td><td>"+nArr[0]+"</td><td>"+(nArr.length-1)+"</td></tr>"
 }
 table=table+"<table>"
 var arrIndex=0;

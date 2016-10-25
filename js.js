@@ -1,4 +1,4 @@
-var mainCounter=0;
+
 var startTime;
 var boolStart=true;
 var marginForBtn = document.documentElement.clientWidth/2-75;
@@ -33,36 +33,6 @@ if(idToChange){
 
 function start(){
 
-
-		
-
-		$('.tick').on('mousedown', function(){
-			counter()
-			if(boolStart){
-				sTime()
-				counterLogger.push(counterName)
-		 		//counterLogger.push(moment())
-		 		timer()
-			}
-			boolStart=false;
-			
-			logger()
-		})
-
-		function counter(){
-			mainCounter++;
-			$(".appConsole").find('p').text(mainCounter)
-		}
-		function sTime(){
-			startTime=moment()
-			$('.hStart').find('span').html(startTime.format("DD.MM <br> HH:mm:ss"))
-			return startTime;
-		}
-		function timer(){
-			var delta=moment()-startTime;
-			$('.hLong').find('span').html(moment(delta).format('mm:ss'))
-			t=setTimeout(timer, 1000)
-		}
 		//название
 		$('.hName').on('click', function(){
 			counterName=prompt('Введите название')
@@ -71,6 +41,66 @@ function start(){
 		})
 		//конец названия
 		//Стоп машина
+
+
+}
+
+
+function addCounter(c){
+	console.log('Будем менть массив'+c)
+	$('.appCounterName').html(jCarr[c].split(',')[0])
+
+	window.mainCounter=jCarr[c].split(',').length-1
+	console.log(mainCounter)
+	$(".appConsole").find('p').text(mainCounter)
+	//counter(reCounter)
+	startTime=moment(parseInt(jCarr[c].split(',')[1]))
+	$('.hStart').find('span').html(startTime.format("DD.MM <br> HH:mm:ss"))
+	console.log(mainCounter)
+	//timer(startTime)
+
+}
+
+
+$('.tick').on('mousedown', function(){
+	counter()
+
+	/*if(boolStart){
+		sTime()
+		//counterLogger.push(counterName)
+		timer()
+		}
+	boolStart=false;
+	logger()*/
+})
+
+
+
+
+
+function counter(){
+		mainCounter++;
+		$(".appConsole").find('p').text(mainCounter)
+
+	}
+function sTime(){
+	startTime=moment()
+	$('.hStart').find('span').html(startTime.format("DD.MM <br> HH:mm:ss"))
+	return startTime;
+}
+
+
+
+
+function timer(s){
+	if(s){startTime=s}
+	var delta=moment()-startTime;
+	$('.hLong').find('span').html(moment(delta).format('mm:ss'))
+	t=setTimeout(timer, 1000)
+}
+
+
+
 		$('.hLong').on('click', function(){
 			logger('s') //записываем конец
 			// функция записи кудато, возможно в локальное хранилище
@@ -95,15 +125,3 @@ function start(){
 				}
 			}
 		}
-
-}
-
-
-function addCounter(c){
-	console.log('Будем менть массив'+c)
-	$('.appCounterName').html(jCarr[c][0])
-	mainCounter=jCarr[c].split(',').length-1
-	$(".appConsole").find('p').text(mainCounter)
-	startTime=jCarr[c][1]
-	timer()
-}
