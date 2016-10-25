@@ -6,6 +6,9 @@ var counterName="Нет имени";
 var counterLogger=[];
 var t;
 var jC=''
+var mainCounter=0;
+var boolEdit=false;
+var cEdit=0;
 $('.buttonHolder').css('margin-left', marginForBtn)
 if(!localStorage.getItem('justCounter')){
 	var jC='';
@@ -16,9 +19,6 @@ if(!localStorage.getItem('justCounter')){
 	}
 
 
-
-
-
 var idToChange = localStorage.getItem('idToChange')
 localStorage.removeItem('idToChange')
 if(idToChange){
@@ -27,8 +27,6 @@ if(idToChange){
 	start()
 
 	}
-
-
 
 
 function start(){
@@ -57,6 +55,12 @@ function addCounter(c){
 	startTime=moment(parseInt(jCarr[c].split(',')[1]))
 	$('.hStart').find('span').html(startTime.format("DD.MM <br> HH:mm:ss"))
 	console.log(mainCounter)
+	window.boolEdit=true
+	cEdit=c
+
+	for(var i=1; i<jCarr[c].split(',').length; i++){
+		counterLogger.push(jCarr[c].split(',')[i])
+	}
 	//timer(startTime)
 
 }
@@ -65,13 +69,13 @@ function addCounter(c){
 $('.tick').on('mousedown', function(){
 	counter()
 
-	/*if(boolStart){
+	if(boolStart){
 		sTime()
 		//counterLogger.push(counterName)
 		timer()
 		}
 	boolStart=false;
-	logger()*/
+	logger()
 })
 
 
@@ -98,9 +102,6 @@ function timer(s){
 	$('.hLong').find('span').html(moment(delta).format('mm:ss'))
 	t=setTimeout(timer, 1000)
 }
-
-
-
 		$('.hLong').on('click', function(){
 			logger('s') //записываем конец
 			// функция записи кудато, возможно в локальное хранилище
@@ -117,11 +118,20 @@ function timer(s){
 		function logger(s){
 			counterLogger.push(new Date().getTime())
 			if(s=='s'){
-				if(newName=prompt('Чтобы сохранить нажмите ОК и, при желании, введите название', counterName)){
+				if(boolEdit){
+					newName=prompt('Желаете ли поменять название?', jCarr[cEdit].split(',')[0])
+					counterLogger[0]=newName
+					jCarr[cEdit]=counterLogger
+					jC=jCarr.join("/%/")
+					localStorage.setItem('justCounter', jC)
+				}else{
+					if(newName=prompt('Чтобы сохранить нажмите ОК и, при желании, введите название', counterName)){
 					counterLogger[0]=newName
 					jCarr.push(counterLogger)
 					jC=jCarr.join("/%/")
 					localStorage.setItem('justCounter', jC)
 				}
+				}
+				
 			}
 		}
