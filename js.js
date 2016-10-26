@@ -1,4 +1,5 @@
-
+moment.locale('ru');
+$.event.special.swipe.horizontalDistanceThreshold=150
 var startTime;
 var boolStart=true;
 var marginForBtn = document.documentElement.clientWidth/2-75;
@@ -45,8 +46,8 @@ function start(){
 
 
 function addCounter(c){
-	console.log('Будем менть массив'+c)
-	$('.appCounterName').html(jCarr[c].split(',')[0])
+
+	$('.appCounterName').html("Счетчик: "+jCarr[c].split(',')[0])
 
 	window.mainCounter=jCarr[c].split(',').length-1
 	console.log(mainCounter)
@@ -135,3 +136,7 @@ function timer(s){
 				
 			}
 		}
+
+$('body').on('swipe', function(){
+	confirm("Перейти в статистику")
+})		
