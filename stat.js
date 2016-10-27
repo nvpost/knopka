@@ -3,12 +3,13 @@ $.event.special.swipe.horizontalDistanceThreshold=150
 var starArr=localStorage.getItem('justCounter').split('/%/')
 starArr.shift()
 $('#vsegoZapisey').html(starArr.length)
-var table="<table class='table table-bordered'> <thead><tr><th>Дата</th><th>Название</th><th>Кол-во</th></tr> </thead>"
+var tableHead="<table class='table table-bordered'> <thead><tr><th>Дата</th><th>Название</th><th>Кол-во</th></tr> </thead>"
+var table=''
 for(i in starArr){
 	var nArr=starArr[i].split(',')
- 	table=table+"<tr data-row="+i+"><td>"+moment(parseInt(nArr[1])).format('DD.MM, HH:mm')+"</td><td>"+nArr[0]+"</td><td>"+(nArr.length-1)+"</td></tr>"
+ 	table="<tr data-row="+i+"><td>"+moment(parseInt(nArr[1])).format('DD.MM, HH:mm')+"</td><td>"+nArr[0]+"</td><td>"+(nArr.length-1)+"</td></tr>"+table
 }
-table=table+"<table>"
+table=tableHead+table+"<table>"
 var arrIndex=0;
 $('.tablePlace').html(table)
 $('td:not(.notStat)').on('click', function(e){
@@ -143,6 +144,25 @@ function msCh(ms){
 
 $('.footerBack').click(function(){
 	document.location.href="screen1.html"
+})
+
+
+if(localStorage.getItem('learnJQs')!=='stat'){
+	learnShow()
+}
+function learnShow(){
+	$('.learnHover').fadeIn()
+	$('.learn1').fadeIn()	
+}
+function learnClose(){
+	$('.learnHover').fadeOut()
+	$('.learn1').fadeOut()	
+}
+
+$('.help').click(learnShow)
+$('.learnClose, .learnHover').click(function(){
+	learnClose()
+	localStorage.setItem('learnJQs', 'stat')
 })
 $.mobile.loading().hide();
 

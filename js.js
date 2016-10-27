@@ -2,7 +2,7 @@ moment.locale('ru');
 $.event.special.swipe.horizontalDistanceThreshold=150
 var startTime;
 var boolStart=true;
-var marginForBtn = document.documentElement.clientWidth/2-125;
+var marginForBtn = document.documentElement.clientWidth/2-100;
 var counterName="Нет имени";
 var counterLogger=[];
 var t;
@@ -157,7 +157,26 @@ function stop(){
 			boolStart=true;
 			counterName="Нет имени";
 			counterLogger=[];
-			$('.hStart').find('span').html("для старта нажмите +1")
+			$('.hStart').find('span').html("нажмите&nbsp;+1")
 			$(".appConsole").addClass('stopCounter')
 }
+
+
+if(localStorage.getItem('learnJQ')!=='s1'){
+	learnShow()
+}
+function learnShow(){
+	$('.learnHover').fadeIn()
+	$('.learn1').fadeIn()	
+}
+function learnClose(){
+	$('.learnHover').fadeOut()
+	$('.learn1').fadeOut()	
+}
+
+$('.learnClose, .learnHover').click(function(){
+	learnClose()
+	localStorage.setItem('learnJQ', 's1')
+})
+$('.help').click(learnShow)
 $.mobile.loading().hide();		

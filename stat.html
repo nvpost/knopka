@@ -1,4 +1,6 @@
+
 <meta name="viewport" content="width=device-width">
+<meta charset="utf-8">
 <script src="lib/jquery.min.js"></script>
 <link rel="stylesheet" href="lib/bootstrap.min.css">
 <link rel="stylesheet" href="lib/bootstrap-theme.min.css">
@@ -11,10 +13,35 @@
 
 <body>
 	<div class='main'>
+			<div class='learnHover'></div>
+			<div class="learn1">
+				<div class='learnSwipe'>
+					<figure>
+						<p><img src="learn/swipeLeft.png" width="100px"></p> 
+						<figcaption><h4>Свайп вправо</h4><p>Продолжить счет данной записи</p></figcaption>
+					</figure> 
+					<figure>
+						<p><img src="learn/swipeRight.png" width="100px"></p> 
+						<figcaption><h4>Свайп вправо</h4><p>Удалить данную запись</p></figcaption>
+					</figure> 
+				</div>
+				<div class="leadnStarn">
+					<figure>
+						<p><img src="learn/klick.png" width="100px"></p> 
+						<figcaption><h4>Посмотреть "путь" счета</h4></figcaption>
+					</figure> 
+				</div> 
+				<button class="btn btn-success learnClose" id>Ясно, понятно</button>
+			</div>
+
+
+
+
 		<div class='statHover'></div>
+
 		<div class="wayModal">
 			<div class="wayModalHeader"></div>
-			<div class="wayModalBody"></iframe></div>
+			<div class="wayModalBody"></div>
 		</div>
 		<div class="statBox">
 			<div class="statHeader">
@@ -26,10 +53,13 @@
 				<div class="tablePlace"></div>
 			</div>
 		</div>	
+		<div class="help" id='myId'>?</div>
 		<div class="statFooter">
 			<div class="btn btn-info footerBack">К счетчику</div>
 		</div>
 	</div>	
 
 <script src="stat.js"></script>
+
+
 </body>

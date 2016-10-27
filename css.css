@@ -1,9 +1,9 @@
 body{
 	background: #DDDDDD;
 	font-family: 'Arya', sans-serif;
-	background-image: url('img/f20.JPG');
+	background-image: url('img/f14.JPG');
 	padding:0px;
-	/*background-size:auto, 100%;*/
+	background-size:100%, auto;
 }
 p{
 	margin: 0;
@@ -19,7 +19,7 @@ h2{
 
 
 			    position: fixed;
-   				bottom: 30px;
+   				bottom: 3%;
 			}
 		.button{
 			font-weight: bold;
@@ -28,10 +28,10 @@ h2{
 			border-radius: 50%;
 			box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
 			float:right;
-			height: 250px;
+			height: 200px;
 			margin: 0 30px 30px 0;
 			position: relative;
-			width: 250px;			
+			width: 200px;			
 			-webkit-transition: all .1s linear;
 			transition: all .1s linear;
 		}
@@ -39,30 +39,33 @@ h2{
 			color:#616161;
 			content: "";
 			display: block;
-			font-size: 14em;
+			font-size: 12em;
 			text-decoration: none;
 			text-shadow: 3px 3px 1px #bdb5b4, 3px 3px 1px white;
+
 			position: absolute;
+
 		}
 		.tick:after{
 			content: "+1";
-			left:10px;
-			top:0px;
+			left:0px;
+			top:-15px;
 		}
 		.button:active{
 			background-image: -webkit-linear-gradient(top, #efedec, #f7f4f4);
 			background-image: linear-gradient(top, #efedec, #f7f4f4);
 			box-shadow: 0 3px 5px 0 rgba(0,0,0,.4), inset 0px -3px 1px 1px rgba(204,198,197,.5);
+
 		}
 		.button:active:after{
-			color:#B7B7B7;
-			text-shadow: 0px 0px 1px #bdb5b4, 0px 0px 1px white;
+			color:#9A9A9A;
+			text-shadow: -1px -1px 1px #bdb5b4, 0px 0px 1px white;
 		}
 .appConsole{
-	margin-top:10px;
-	font-size: 16em;
+	margin-top:1.5%;
+	/*font-size: 16em;
     text-align: center;
-    text-shadow: 2px 2px 5px rgba(150, 150, 150, 1);
+    text-shadow: 2px 2px 5px rgba(150, 150, 150, 1);*/
 }
 .appCounterName{
 	margin-top:8px;
@@ -85,7 +88,6 @@ h2{
 	vertical-align: top;
 	padding-left: 5px;
 
-
 }	
 .hStart>span, .hLong>span{
 	margin-top: 10px;
@@ -103,13 +105,16 @@ h2{
 /*Блок статистики*/	
 .statHeader{
 	padding-left: 5px;
-		height: 80px;
+		height: 40px;
 		background-color: #fff;
 		box-shadow: 0 3px 5px 0 rgba(150, 150, 150, 1);
 		text-align: center;
 		font-size: 24px;
 		font-weight: bold;
-		padding-top: 20px;
+		width: 100%;
+		top:0;
+		position: fixed;
+		z-index: 1;
 }
 .table-bordered{
 	font-size: 14px;
@@ -117,7 +122,8 @@ h2{
 }
 
 .tablePlace{
-	margin-top: 10px;
+	margin-top: 42px;
+	margin-bottom: 10%
 }
 .hoverTr{
 	background-color: #E4EAA3;
@@ -148,7 +154,7 @@ h2{
 .wayModal{
 	width:300px;
 
-	height: 95%;
+	height: 90%;
 	position: absolute;
 	top:2.5%;
 	left: 150px;
@@ -231,4 +237,83 @@ h2{
 
 .footerBack{
 	width: 100%;
+}
+
+
+/*Новые цифры*/
+.hit-the-floor {
+height: 50px;
+z-index: 150;
+color: #fff;
+font-size: 16em;
+font-weight: bold;
+font-family: Helvetica;
+text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.2), 0 20px 20px rgba(0,0,0,.15);
+}
+
+.hit-the-floor {
+  text-align: center;
+}
+
+/*Обучение*/
+.learnHover, .learn1{
+	display: none;
+}
+.learnHover{
+	z-index: 150;
+	height: 100%;
+	width: 100%;
+	opacity: 0.7;
+	position:absolute;
+	background-color: gray;
+}
+.learn1{
+	z-index: 160;
+	/*height: 90%;*/
+	width: 90%;
+	top: 5%;
+	left: 5%;
+	padding: 1%;
+	position:absolute;
+	background-color: white;
+	font-size: 12px;	
+}
+.leadnStarn{
+	padding-left: 10%;
+}
+ figure {
+    padding: 10px; /* Поля вокруг */
+    display: block; /* Блочный элемент */
+    width: 45%; /* Ширина */
+    float: left; /* Блоки выстраиваются по горизонтали */
+    margin: 0 10px 10px 0; /* Отступы */
+    text-align: center; /* Выравнивание по центру */
+   }
+   figcaption {
+    color: #000; /* Цвет текста */
+   }
+      figure img {
+    border: 2px solid #878787; /* Параметры рамки */
+   }
+   figure p {
+    margin-bottom: 0; /* Отступ снизу */
+   }
+.leadnStarn>figure{
+	width: 250px;
+}
+.learn1>.btn-success{
+	width:100%;
+}
+.help{
+	position: fixed;
+	left: 90%;
+	top: 5px;
+	font-size: 14px;
+	border:1px solid gray;
+	border-radius: 3px;
+	color: #fff;
+	width: 20px;
+	text-align: center;
+	background-color: gray;
+	z-index: 170;
 }
