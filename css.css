@@ -1,9 +1,9 @@
 body{
 	background: #DDDDDD;
 	font-family: 'Arya', sans-serif;
-	background-image: url('img/white1.jpg');
+	background-image: url('img/f20.JPG');
 	padding:0px;
-
+	/*background-size:auto, 100%;*/
 }
 p{
 	margin: 0;
@@ -19,7 +19,7 @@ h2{
 
 
 			    position: fixed;
-   				bottom: 50px;
+   				bottom: 30px;
 			}
 		.button{
 			font-weight: bold;
@@ -28,10 +28,10 @@ h2{
 			border-radius: 50%;
 			box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
 			float:right;
-			height: 150px;
+			height: 250px;
 			margin: 0 30px 30px 0;
 			position: relative;
-			width: 150px;			
+			width: 250px;			
 			-webkit-transition: all .1s linear;
 			transition: all .1s linear;
 		}
@@ -39,7 +39,7 @@ h2{
 			color:#616161;
 			content: "";
 			display: block;
-			font-size: 8em;
+			font-size: 14em;
 			text-decoration: none;
 			text-shadow: 3px 3px 1px #bdb5b4, 3px 3px 1px white;
 			position: absolute;
@@ -59,8 +59,8 @@ h2{
 			text-shadow: 0px 0px 1px #bdb5b4, 0px 0px 1px white;
 		}
 .appConsole{
-	margin-top:50px;
-	font-size: 10em;
+	margin-top:10px;
+	font-size: 16em;
     text-align: center;
     text-shadow: 2px 2px 5px rgba(150, 150, 150, 1);
 }
@@ -71,18 +71,21 @@ h2{
     font-weight: bold;
 }
 .appHeader, .wayHeader{
-	height: 80px;
-	background-color:white;
+	height: 60px;
+	background-color: rgba(255, 255, 255, 0.5);
+
 	box-shadow: 0 3px 5px 0 rgba(150, 150, 150, 1)
 }
 .appHeader>div{
 	display: inline-table;
 	border-left: 1px solid gray;
 	width: 48%;
-	height: 80px;
+	height: 60px;
 	font-size: 14px;
 	vertical-align: top;
 	padding-left: 5px;
+
+
 }	
 .hStart>span, .hLong>span{
 	margin-top: 10px;
@@ -219,4 +222,13 @@ h2{
 	justify-content: center;
 }
 
-/*Конец блока пути*/	
+/*Конец блока пути*/
+.statFooter{
+	position: fixed;
+	bottom:0;
+	width: 100%;
+}
+
+.footerBack{
+	width: 100%;
+}

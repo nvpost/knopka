@@ -2,7 +2,7 @@ moment.locale('ru');
 $.event.special.swipe.horizontalDistanceThreshold=150
 var startTime;
 var boolStart=true;
-var marginForBtn = document.documentElement.clientWidth/2-75;
+var marginForBtn = document.documentElement.clientWidth/2-125;
 var counterName="Нет имени";
 var counterLogger=[];
 var t;
@@ -54,7 +54,7 @@ function addCounter(c){
 	$(".appConsole").find('p').text(mainCounter)
 	//counter(reCounter)
 	startTime=moment(parseInt(jCarr[c].split(',')[1]))
-	$('.hStart').find('span').html(startTime.format("DD.MM <br> HH:mm:ss"))
+	$('.hStart').find('span').html(startTime.format("DD.MM - HH:mm:ss"))
 	console.log(mainCounter)
 	window.boolEdit=true
 	cEdit=c
@@ -72,7 +72,7 @@ $('.tick').on('mousedown', function(){
 
 	if(boolStart){
 		sTime()
-		//counterLogger.push(counterName)
+		$(".appConsole").removeClass('stopCounter')
 		timer()
 		}
 	boolStart=false;
@@ -90,7 +90,7 @@ function counter(){
 	}
 function sTime(){
 	startTime=moment()
-	$('.hStart').find('span').html(startTime.format("DD.MM <br> HH:mm:ss"))
+	$('.hStart').find('span').html(startTime.format("DD.MM - HH:mm:ss"))
 	return startTime;
 }
 
@@ -103,18 +103,7 @@ function timer(s){
 	$('.hLong').find('span').html(moment(delta).format('mm:ss'))
 	t=setTimeout(timer, 1000)
 }
-		$('.hLong').on('click', function(){
-			logger('s') //записываем конец
-			// функция записи кудато, возможно в локальное хранилище
-			mainCounter=0
-			startTime=0
-			clearTimeout(t)
-			boolStart=true;
-			counterName="Нет имени";
-			counterLogger=[];
-			$('.hStart').find('span').html("для старта нажмите +1")
-			$(".appConsole").addClass('stopCounter')
-		})
+		$('.hLong').on('click', stop)
 		//Конец стопа 
 		function logger(s){
 			counterLogger.push(new Date().getTime())
@@ -136,7 +125,39 @@ function timer(s){
 				
 			}
 		}
+$('body').on('swipeleft', function(){
+	if(confirm("Перейти в статистику "+wo())){
+		document.location.href="stat.html"
+	}
+})
+function wo(){
+	if(!boolStart){
+		return "без сохранения"
+	}else{
+		return ''
+	}
+}
 
-$('body').on('swipe', function(){
-	confirm("Перейти в статистику")
-})		
+$('body').on('swiperight', function(){
+	if(!boolStart){
+		if(confirm('Остановить счет?')){
+		stop()
+	}
+	}
+
+})
+
+
+function stop(){
+	logger('s') //записываем конец
+			// функция записи кудато, возможно в локальное хранилище
+			mainCounter=0
+			startTime=0
+			clearTimeout(t)
+			boolStart=true;
+			counterName="Нет имени";
+			counterLogger=[];
+			$('.hStart').find('span').html("для старта нажмите +1")
+			$(".appConsole").addClass('stopCounter')
+}
+$.mobile.loading().hide();		

@@ -1,11 +1,12 @@
-
+$.event.special.swipe.horizontalDistanceThreshold=150
 
 var starArr=localStorage.getItem('justCounter').split('/%/')
+starArr.shift()
 $('#vsegoZapisey').html(starArr.length)
-var table="<table class='table table-bordered'> <thead><tr><th>Re</th><th>Дата</th><th>Название</th><th>Кол-во</th></tr> </thead>"
+var table="<table class='table table-bordered'> <thead><tr><th>Дата</th><th>Название</th><th>Кол-во</th></tr> </thead>"
 for(i in starArr){
 	var nArr=starArr[i].split(',')
- 	table=table+"<tr data-row="+i+"><td class='notStat'><img id='rep"+i+"' src='img/return.png' width='30'></td><td>"+moment(parseInt(nArr[1])).format('DD.MM, HH:mm')+"</td><td>"+nArr[0]+"</td><td>"+(nArr.length-1)+"</td></tr>"
+ 	table=table+"<tr data-row="+i+"><td>"+moment(parseInt(nArr[1])).format('DD.MM, HH:mm')+"</td><td>"+nArr[0]+"</td><td>"+(nArr.length-1)+"</td></tr>"
 }
 table=table+"<table>"
 var arrIndex=0;
@@ -16,9 +17,13 @@ $('td:not(.notStat)').on('click', function(e){
 })
 
 
-$('td').on('swipe', function(){
+$('td').on('swiperight', function(){
 	console.log($(this).parent().data('row'))
 	deleteRow($(this).parent())
+})
+$('td').on('swipeleft', function(){
+	localStorage.setItem('idToChange', $(this).parent().data('row'))
+	document.location.href="screen1.html"
 })
 function deleteRow(tr){
 	e=tr.data('row')
@@ -34,6 +39,7 @@ function deleteRow(tr){
 			}
 		localStorage.removeItem('justCounter')	
 		localStorage.setItem('justCounter', newStr)	
+		console.log(newStr)
 		/*Удалем переменную счетчика из локального хранилища*/
 	}
 }
@@ -124,7 +130,6 @@ function getDuration(l, short){
 
 function msCh(ms){
 	var z=ms.toString()
-	console.log(z)
 	switch (z.length){
 		case 2:
 			return '0'+z;
@@ -136,6 +141,8 @@ function msCh(ms){
 		
 }
 
-
+$('.footerBack').click(function(){
+	document.location.href="screen1.html"
+})
 $.mobile.loading().hide();
 
