@@ -1,7 +1,8 @@
-$.event.special.swipe.horizontalDistanceThreshold=100
-
+$.event.special.swipe.horizontalDistanceThreshold=30
+var starArr=[]
 var starArr=localStorage.getItem('justCounter').split('/%/')
 starArr.shift()
+
 $('#vsegoZapisey').html(starArr.length)
 var tableHead="<table class='table table-bordered'> <thead><tr><th>Дата</th><th>Название</th><th>Кол-во</th></tr> </thead>"
 var table=''
@@ -23,7 +24,6 @@ $('td').on('swiperight', function(){
 	deleteRow($(this).parent())
 })
 $('td').on('swipeleft', function(){
-	alert($(this).parent().data('row'))
 	localStorage.setItem('idToChange', $(this).parent().data('row'))
 	document.location.href="index.html"
 })
@@ -165,5 +165,8 @@ $('.learnClose, .learnHover').click(function(){
 	learnClose()
 	localStorage.setItem('learnJQs', 'stat')
 })
+
+
+
 $.mobile.loading().hide();
 

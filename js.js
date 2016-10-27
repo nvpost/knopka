@@ -1,15 +1,17 @@
 moment.locale('ru');
-$.event.special.swipe.horizontalDistanceThreshold=100
+$.event.special.swipe.horizontalDistanceThreshold=30
 var startTime;
 var boolStart=true;
 var marginForBtn = document.documentElement.clientWidth/2-100;
-var counterName="Нет имени";
+var counterName="Название";
 var counterLogger=[];
 var t;
 var jC=''
+var jCarr=[]
 var mainCounter=0;
 var boolEdit=false;
 var cEdit=0;
+var sound=true;
 $('.buttonHolder').css('margin-left', marginForBtn)
 if(!localStorage.getItem('justCounter')){
 	var jC='';
@@ -17,9 +19,9 @@ if(!localStorage.getItem('justCounter')){
 }else{
 	var jC=localStorage.getItem('justCounter')
 	jCarr=jC.split('/%/')
+	jCarr.shift()
 	}
 
-jCarr.shift()
 var idToChange = localStorage.getItem('idToChange')
 localStorage.removeItem('idToChange')
 if(idToChange){
@@ -69,7 +71,6 @@ function addCounter(c){
 
 $('.tick').on('mousedown', function(){
 	counter()
-
 	if(boolStart){
 		sTime()
 		$(".appConsole").removeClass('stopCounter')
@@ -77,6 +78,7 @@ $('.tick').on('mousedown', function(){
 		}
 	boolStart=false;
 	logger()
+	if(sound){mp3()}
 })
 
 
@@ -113,13 +115,13 @@ function timer(s){
 					counterLogger[0]=newName
 					jCarr[cEdit]=counterLogger
 					jC=jCarr.join("/%/")
-					localStorage.setItem('justCounter', jC)
+					localStorage.setItem('justCounter', "/%/"+jC)
 				}else{
 					if(newName=prompt('Чтобы сохранить нажмите ОК и, при желании, введите название', counterName)){
 					counterLogger[0]=newName
 					jCarr.push(counterLogger)
 					jC=jCarr.join("/%/")
-					localStorage.setItem('justCounter', jC)
+					localStorage.setItem('justCounter', "/%/"+jC)
 				}
 				}
 				
@@ -179,4 +181,16 @@ $('.learnClose, .learnHover').click(function(){
 	localStorage.setItem('learnJQ', 's1')
 })
 $('.help').click(learnShow)
+
+
+function mp3(){
+	var audio = new Audio();
+    audio.src = 'click.mp3';
+    audio.autoplay = true;
+}
+$('.sound').click(function(){
+	if(sound){$('.sound').find('img').attr('src', 'img/sOff.png'); sound=false}
+	else{$('.sound').find('img').attr('src', 'img/sOn.png'); sound=true}
+})
+
 $.mobile.loading().hide();		
