@@ -1,5 +1,5 @@
 moment.locale('ru');
-$.event.special.swipe.horizontalDistanceThreshold=150
+$.event.special.swipe.horizontalDistanceThreshold=100
 var startTime;
 var boolStart=true;
 var marginForBtn = document.documentElement.clientWidth/2-100;
@@ -19,7 +19,7 @@ if(!localStorage.getItem('justCounter')){
 	jCarr=jC.split('/%/')
 	}
 
-
+jCarr.shift()
 var idToChange = localStorage.getItem('idToChange')
 localStorage.removeItem('idToChange')
 if(idToChange){

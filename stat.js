@@ -1,4 +1,4 @@
-$.event.special.swipe.horizontalDistanceThreshold=150
+$.event.special.swipe.horizontalDistanceThreshold=100
 
 var starArr=localStorage.getItem('justCounter').split('/%/')
 starArr.shift()
@@ -23,12 +23,13 @@ $('td').on('swiperight', function(){
 	deleteRow($(this).parent())
 })
 $('td').on('swipeleft', function(){
+	alert($(this).parent().data('row'))
 	localStorage.setItem('idToChange', $(this).parent().data('row'))
-	document.location.href="screen1.html"
+	document.location.href="index.html"
 })
 function deleteRow(tr){
 	e=tr.data('row')
-	if(confirm('Удалить запись '+starArr[e].split(',')[0]+' от '+moment(starArr[e].split(',')[1]).format("DD.MM.YY HH:mm:ss")+'?')){
+	if(confirm('Удалить запись '+starArr[e].split(',')[0]+' от '+moment(parseInt(starArr[e].split(',')[1])).format("DD.MM.YY HH:mm:ss")+'?')){
 		console.log('удаляем '+starArr[e][0]+'')
 		starArr.splice(e, 1)
 		tr.hide()
@@ -50,14 +51,14 @@ $('img').click(function(){
 	var idToChange=tmpId.slice(3, tmpId.length)
 	console.log("Поправим массив "+idToChange)
 	localStorage.setItem('idToChange', idToChange)
-	document.location.href="screen1.html"
+	document.location.href="index.html"
 })
 
 //модальное окно
 function modalWay(a){
 	$('.wayModalBody').html('')
 	$('.statHover, .wayModal').fadeIn()
-	$('.wayModal').css('left', document.documentElement.clientWidth/2-150)
+	//$('.wayModal').css('left', document.documentElement.clientWidth/2-150)
 	var h=document.documentElement.clientHeight-80;
 	$('.way').css('height', h)
 
@@ -143,7 +144,7 @@ function msCh(ms){
 }
 
 $('.footerBack').click(function(){
-	document.location.href="screen1.html"
+	document.location.href="index.html"
 })
 
 
